@@ -9,7 +9,7 @@ $ZColor: rgb(255, 102, 0);
 $LColor: rgb(255, 255, 0);
 $IColor: #26D4ED;
 $mirroredZColor: rgb(63, 72, 204);
-$mirroredLColor: red;
+$mirroredLColor: rgb(247, 31, 53);
 
 $boxW: 30px;
 $space: 5px;
@@ -257,7 +257,16 @@ body {
 	animation-delay: $mainAnimDelay+1;
 	position: relative;
 	top: -$treeMarginTop;
+}
 
+a {
+	color:$mirroredLColor;
+	font-family: 'Quicksand', sans-serif;
+	font-weight:700;
+	text-decoration:none;
+	position:fixed;
+	top:5px;
+	
 }
 
 .I {
