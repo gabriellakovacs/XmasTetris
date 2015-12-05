@@ -1,0 +1,1056 @@
+$backgroundColor: rgb(27, 24, 39);
+$treeColor: rgb(66, 147, 113);
+
+$green: #189;
+
+$TColor: #981;
+$OColor: rgb(9, 97, 193);
+$ZColor: rgb(255, 102, 0);
+$LColor: rgb(255, 255, 0);
+$IColor: #26D4ED;
+$mirroredZColor: rgb(63, 72, 204);
+$mirroredLColor: red;
+
+$boxW: 30px;
+$space: 5px;
+
+$fallTime:4s;
+$rearrangeTime:3s;
+$treeReadyDuration:2s;
+
+$mainAnimDelay: 180*$fallTime/13;
+
+$snowW: 3px;
+$snowSpacing: 1px;
+
+$treeMarginTop: 100px;
+
+
+@keyframes falling{
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(13*($boxW + $space)+$treeMarginTop);
+	}
+}
+
+@keyframes rearrange_L1{
+	79% {
+		box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  -($boxW + $space) ($boxW + $space);
+	}
+	100% {
+		box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), ($boxW + $space)  0px;
+	}
+}
+
+@keyframes rearrange_mirroredL1{
+	79% {
+		box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+	}
+	100% {
+		box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+	}
+}
+
+@keyframes rearrange_mirroredL2{
+	40% {
+		box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+	}
+	61% {
+		box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+	}
+	79% {
+		box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+	}
+	100% {
+		box-shadow: ($boxW + $space) 0px, 2*($boxW + $space) 0px,  0px (-($boxW + $space));
+	}
+}
+
+@keyframes rearrange_I1{
+	79% {
+		box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 2*($boxW + $space) 0px;
+	}
+	100% {
+		box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), 0px 2*($boxW + $space);
+	}
+}
+
+@keyframes rearrange_Z1{
+	79% {
+		box-shadow: -($boxW + $space) 0px,  0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+	}
+	100% {
+		box-shadow: 0px (-($boxW + $space)), -($boxW + $space) 0px, -($boxW + $space) ($boxW + $space);
+	}
+}
+
+@keyframes rearrange_mirroredZ1{
+	79% {
+		box-shadow: ($boxW + $space) 0px,  0px ($boxW + $space), -($boxW + $space) ($boxW + $space);
+	}
+	100% {
+		box-shadow: 0px (-($boxW + $space)), ($boxW + $space) 0px, ($boxW + $space) ($boxW + $space);
+	}
+}
+
+
+@keyframes rearrange_T2{
+	30% {
+		box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+	}
+	51% {
+		box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+	}
+	79% {
+		box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+	}
+	100% {
+		box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+	}
+}
+
+@keyframes rearrange_T3{
+	9% {
+		box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+	}
+	28% {
+		box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+	}
+	43% {
+		box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+	}
+	64% {
+		box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+	}
+	79% {
+		box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+	}
+	100% {
+		box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), ($boxW + $space) 0px;
+	}
+}
+
+@keyframes treeReady{
+	to {
+		background: $treeColor;
+		color: $treeColor;
+	}
+}
+
+@keyframes fadeIn{
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOut{
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes fallingSnow{
+	from {
+		transform: translateY(0px);
+    }
+    to {	
+        transform: translateY(1000px);
+    }
+}
+
+@keyframes left0{
+	to {
+		left:0;
+	}
+}
+
+@keyframes left1{
+	to {
+		left:($boxW + $space);
+	}
+}
+
+@keyframes left2{
+	to {
+		left:2 * ($boxW + $space);
+	}
+}
+
+@keyframes left3{
+	to {
+		left:3 * ($boxW + $space);
+	}
+}
+
+@keyframes left4{
+	to {
+		left:4 * ($boxW + $space);
+	}
+}
+
+@keyframes left5{
+	to {
+		left:5 * ($boxW + $space);
+	}
+}
+
+@keyframes left7{
+	to {
+		left:7 * ($boxW + $space);
+	}
+}
+
+@keyframes left9{
+	to {
+		left:9 * ($boxW + $space);
+	}
+}
+
+
+body {
+	background:$backgroundColor;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+	height: 100vh;
+}
+
+.cover {
+	position: absolute;
+	bottom: 0;
+	left:0;
+	background:$backgroundColor;
+	border-bottom: 2px solid black;
+	margin:0;
+	height: 12*($boxW + $space);
+	width: 100vw;
+	margin-bottom: 12*($boxW + $space) + $treeMarginTop;
+	animation: fadeOut 2s linear forwards;
+	animation-delay:$mainAnimDelay;
+}
+
+
+.tree {
+	position: absolute;
+	margin-top:$treeMarginTop;
+	height: 12*($boxW + $space);
+	bottom: 0;
+	left: 50%;
+	margin-left: -5.5 * ($boxW + $space);
+}
+
+.treeComponent {
+	position: absolute;
+	left: 6*($boxW + $space);
+	width:$boxW;
+	height:$boxW;
+	display: inline-block;
+}
+
+.snowLayer {
+	width: 1000px;
+	margin:auto;
+	opacity: 0;
+	animation: fadeIn 5s ease-out forwards;
+	animation-delay: $mainAnimDelay+1;
+	position: relative;
+	top: -$treeMarginTop;
+
+}
+
+.I {
+	box-shadow: -($boxW + $space) 0px , ($boxW + $space) 0px, 2*($boxW + $space) 0px;
+	background:$IColor;
+	color:$IColor;
+}
+
+.L {
+	box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  -($boxW + $space) ($boxW + $space);
+	background:$LColor;
+	color:$LColor;
+}
+
+.mirroredL {
+	box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+	background:$mirroredLColor;
+	color:$mirroredLColor;
+}
+
+.T {
+	box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+	background:$TColor;
+	color:$TColor;
+}
+
+.O {
+	box-shadow: ($boxW + $space) 0px, 0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+	background:$OColor;
+	color:$OColor;
+}
+
+.Z {
+	box-shadow: -($boxW + $space) 0px,  0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+	background:$ZColor;
+	color:$ZColor;
+}
+
+.mirroredZ {
+	box-shadow: ($boxW + $space) 0px,  0px ($boxW + $space), -($boxW + $space) ($boxW + $space);
+	background:$mirroredZColor;
+	color:$mirroredZColor;
+}
+
+#item-1 {
+	top:-2*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_mirroredL2 $rearrangeTime linear forwards, left0 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay: 0s, 0s, 0s, $mainAnimDelay;
+}
+
+#item-2 {	
+	top:-4*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, left1 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay: 11*$fallTime/13, 11*$fallTime/13, $mainAnimDelay;
+}
+
+#item-3 {
+	top:-5*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_mirroredL1 $rearrangeTime linear forwards, left2 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:21*$fallTime/13, 21*$fallTime/13, 21*$fallTime/13, $mainAnimDelay;
+}
+
+#item-4 {
+	top:-2*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_T2 $rearrangeTime linear forwards, left7 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:34*$fallTime/13, 34*$fallTime/13, 34*$fallTime/13, $mainAnimDelay;
+}
+
+#item-5 {
+	top:-3*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, left9 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:46*$fallTime/13, 46*$fallTime/13, $mainAnimDelay;
+}
+
+#item-6 {
+	top:-4*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_Z1 $rearrangeTime linear forwards, left9 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:57*$fallTime/13, 57*$fallTime/13, 57*$fallTime/13, $mainAnimDelay;
+}
+
+#item-7 {
+	top:-2*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_mirroredL2 $rearrangeTime linear forwards, left3 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:70*$fallTime/13, 70*$fallTime/13, 70*$fallTime/13, $mainAnimDelay;
+}
+
+#item-8 {
+	top:-4*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, left5 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:81*$fallTime/13, 81*$fallTime/13, $mainAnimDelay;
+}
+
+#item-9 {
+	top:-4*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_mirroredZ1 $rearrangeTime linear forwards, left3 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:92*$fallTime/13, 92*$fallTime/13, 92*$fallTime/13, $mainAnimDelay;
+}
+
+#item-10 {
+	top:-8*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_I1 $rearrangeTime linear forwards, left3 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:100*$fallTime/13, 100*$fallTime/13, 100*$fallTime/13, $mainAnimDelay;
+}
+
+#item-11 {
+	top:-5*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, left7 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:110*$fallTime/13, 110*$fallTime/13, $mainAnimDelay;
+}
+
+#item-12 {
+	top:-7*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, left7 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:119*$fallTime/13, 119*$fallTime/13, $mainAnimDelay;
+}
+
+#item-13 {
+	top:-6*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, left5 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:129*$fallTime/13, 129*$fallTime/13, $mainAnimDelay;
+}
+
+#item-14 {
+	top:-7*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_T3 $rearrangeTime linear forwards, left4 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:139*$fallTime/13, 139*$fallTime/13, 139*$fallTime/13, $mainAnimDelay;
+}
+
+#item-15 {
+	top:-8*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:147*$fallTime/13, $mainAnimDelay;
+}
+
+#item-16 {
+	top:-9*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, left5 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:153*$fallTime/13, 153*$fallTime/13, $mainAnimDelay;
+}
+
+#item-17 {
+	top:-10*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_mirroredL2 $rearrangeTime linear forwards, left4 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:159*$fallTime/13, 159*$fallTime/13, 159*$fallTime/13, $mainAnimDelay;
+}
+
+#item-18 {
+	top:-11*($boxW + $space)-$treeMarginTop;
+	animation: falling $fallTime linear forwards, rearrange_L1 $rearrangeTime linear forwards, left5 $rearrangeTime linear forwards, treeReady $treeReadyDuration linear forwards;
+	animation-delay:165*$fallTime/13, 165*$fallTime/13, 165*$fallTime/13, $mainAnimDelay;
+}
+
+
+@function L_snow ($n) {
+	$value: '100px 100px, 100px 104px, 100px 108px, 104px 108px';
+	@for $i from 1 through $n {
+		$col1: random(1000);
+		$col2: $col1 + $snowW + $snowSpacing;
+		$row1: random(1000);
+		$row2: $row1 + $snowW + $snowSpacing;
+		$row3: $row1 + 2*$snowW + 2 * $snowSpacing;
+		$value: '#{$value}, #{$col1}px #{$row1}px, #{$col1}px #{$row2}, #{$col1}px #{$row3}, #{$col2} #{$row3}';
+	}
+	@return unquote($value)
+}
+
+@function T_snow ($n) {
+	$value: '150px 100px, 150px 104px, 150px 108px, 154px 104px';
+	@for $i from 1 through $n {
+		$col1: random(1000);
+		$col2: $col1 + $snowW + $snowSpacing;
+		$row1: random(1000);
+		$row2: $row1 + $snowW + $snowSpacing;
+		$row3: $row2 + $snowW + $snowSpacing;
+		$value: '#{$value}, #{$col1}px #{$row1}px, #{$col1}px #{$row2}, #{$col1}px #{$row3}, #{$col2} #{$row2}';
+	}
+	@return unquote($value)
+}
+
+@function Z_snow ($n) {
+	$value: '120px 100px, 124px 100px, 124px 104px, 120px 96px';
+	@for $i from 1 through $n {
+		$col1: random(1000);
+		$col2: $col1 + $snowW + $snowSpacing;
+		$row1: random(1000);
+		$row0: $row1 - ($snowW + $snowSpacing);
+		$row2: $row1 + $snowW + $snowSpacing;
+		$value: '#{$value}, #{$col1}px #{$row1}px, #{$col2} #{$row1}px, #{$col2} #{$row2}, #{$col1}px #{$row0}';
+	}
+	@return unquote($value)
+}
+
+@function O_snow ($n) {
+	$value: '170px 100px, 174px 100px, 174px 104px, 170px 104px';
+	@for $i from 1 through $n {
+		$col1: random(1000);
+		$col2: $col1 + $snowW + $snowSpacing;
+		$row1: random(1000);
+		$row2: $row1 + $snowW + $snowSpacing;
+		$value: '#{$value}, #{$col1}px #{$row1}px, #{$col1}px #{$row2}, #{$col2} #{$row1}px, #{$col2} #{$row2}';
+		}
+	@return unquote($value)
+}
+
+$snowL:L_snow(75);
+$snowT:T_snow(75);
+$snowZ:Z_snow(75);
+$snowO:O_snow(75);
+
+$tetrisShapesList: Z T O L;
+$snowFlakeShapesList:  $snowZ  $snowT $snowO  $snowL;
+
+@each $currentShape in $tetrisShapesList {
+
+	$i: index($tetrisShapesList, $currentShape);
+	.snow#{$currentShape} {
+		width: $snowW;
+		height: $snowW;
+		color:rgba(255, 255, 255, 1.2 - 2*$i/10);
+		box-shadow:  nth($snowFlakeShapesList, $i);
+		animation: fallingSnow $i*12s linear infinite;
+		animation-delay: $mainAnimDelay+2;
+
+		&:after {
+			content: " ";
+			position: absolute;
+			top: -1000px;
+			width: $snowW;
+			height: $snowW;
+			box-shadow: nth($snowFlakeShapesList, $i);
+		}
+	}
+}
+
+@media (max-width: 384px){
+	$boxW: 24px;
+	$space: 3px;
+
+	@keyframes falling{
+		from {
+			transform: translateY(0px);
+		}
+		to {
+			transform: translateY(13*($boxW + $space)+$treeMarginTop);
+		}
+	}
+
+	@keyframes left1{
+		to {
+			left:($boxW + $space);
+		}
+	}
+
+	@keyframes left2{
+		to {
+			left:2 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left3{
+		to {
+			left:3 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left4{
+		to {
+			left:4 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left5{
+		to {
+			left:5 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left7{
+		to {
+			left:7 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left9{
+		to {
+			left:9 * ($boxW + $space);
+		}
+	}
+
+
+	@keyframes rearrange_L1{
+		79% {
+			box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  -($boxW + $space) ($boxW + $space);
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), ($boxW + $space)  0px;
+		}
+	}
+
+	@keyframes rearrange_mirroredL1{
+		79% {
+			box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+		}
+	}
+
+	@keyframes rearrange_mirroredL2{
+		40% {
+			box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+		}
+		61% {
+			box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+		}
+		79% {
+			box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+		}
+		100% {
+			box-shadow: ($boxW + $space) 0px, 2*($boxW + $space) 0px,  0px (-($boxW + $space));
+		}
+	}
+
+	@keyframes rearrange_I1{
+		79% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 2*($boxW + $space) 0px;
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), 0px 2*($boxW + $space);
+		}
+	}
+
+	@keyframes rearrange_Z1{
+		79% {
+			box-shadow: -($boxW + $space) 0px,  0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), -($boxW + $space) 0px, -($boxW + $space) ($boxW + $space);
+		}
+	}
+
+	@keyframes rearrange_mirroredZ1{
+		79% {
+			box-shadow: ($boxW + $space) 0px,  0px ($boxW + $space), -($boxW + $space) ($boxW + $space);
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), ($boxW + $space) 0px, ($boxW + $space) ($boxW + $space);
+		}
+	}
+
+
+	@keyframes rearrange_T2{
+		30% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+		}
+		51% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+		}
+		79% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+		}
+		100% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+		}
+	}
+
+	@keyframes rearrange_T3{
+		9% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+		}
+		28% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+		}
+		43% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+		}
+		64% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+		}
+		79% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), ($boxW + $space) 0px;
+		}
+	}
+
+	.tree {
+		width:11*($boxW + $space);
+		height: 12*($boxW + $space);
+		margin-left: -5.5 * ($boxW + $space);
+	}
+
+	.cover {
+		bottom: 0;
+		margin-bottom: 12*($boxW + $space) + $treeMarginTop;
+		height: 12*($boxW + $space);
+	}
+
+	.treeComponent {
+		left:  6*($boxW + $space);
+		width:$boxW;
+		height:$boxW;
+	}
+
+	.snowLayer {
+		width: 400px;
+	}
+
+	.I {
+		box-shadow: -($boxW + $space) 0px , ($boxW + $space) 0px, 2*($boxW + $space) 0px;
+	}
+
+	.L {
+		box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  -($boxW + $space) ($boxW + $space);
+	}
+
+	.mirroredL {
+		box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+	}
+
+	.T {
+		box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+	}
+
+	.O {
+		box-shadow: ($boxW + $space) 0px, 0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+	}
+
+	.Z {
+		box-shadow: -($boxW + $space) 0px,  0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+	}
+
+	.mirroredZ {
+		box-shadow: ($boxW + $space) 0px,  0px ($boxW + $space), -($boxW + $space) ($boxW + $space);
+	}
+
+	#item-1 {
+		top:-2*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-2 {
+		top:-4*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-3 {
+		top:-5*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-4 {
+		top:-2*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-5 {
+		top:-3*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-6 {
+		top:-4*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-7 {
+		top:-2*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-8 {
+		top:-4*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-9 {
+		top:-4*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-10 {
+		top:-8*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-11 {
+		top:-5*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-12 {
+		top:-7*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-13 {
+		top:-6*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-14 {
+		top:-7*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-15 {
+		top:-8*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-16 {
+		top:-9*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-17 {
+		top:-10*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-18 {
+		top:-11*($boxW + $space)-$treeMarginTop;
+	}
+}
+
+
+
+@media (min-width: 440px) and (min-height: 700px) {
+
+	$boxW: 35px;
+	$treeMarginTop:250px;
+
+	@keyframes falling{
+		from {
+			transform: translateY(0px);
+		}
+		to {
+			transform: translateY(13*($boxW + $space)+$treeMarginTop);
+		}
+	}
+
+	@keyframes left0{
+		to {
+			left:0;
+		}
+	}
+
+	@keyframes left1{
+		to {
+			left:($boxW + $space);
+		}
+	}
+
+	@keyframes left2{
+		to {
+			left:2 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left3{
+		to {
+			left:3 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left4{
+		to {
+			left:4 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left5{
+		to {
+			left:5 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left7{
+		to {
+			left:7 * ($boxW + $space);
+		}
+	}
+
+	@keyframes left9{
+		to {
+			left:9 * ($boxW + $space);
+		}
+	}
+
+
+	@keyframes rearrange_L1{
+		79% {
+			box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  -($boxW + $space) ($boxW + $space);
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), ($boxW + $space)  0px;
+		}
+	}
+
+	@keyframes rearrange_mirroredL1{
+		79% {
+			box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+		}
+	}
+
+	@keyframes rearrange_mirroredL2{
+		40% {
+			box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+		}
+		61% {
+			box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+		}
+		79% {
+			box-shadow: 0px (-($boxW + $space)), 0px (-2*($boxW + $space)), -($boxW + $space)  0px;
+		}
+		100% {
+			box-shadow: ($boxW + $space) 0px, 2*($boxW + $space) 0px,  0px (-($boxW + $space));
+		}
+	}
+
+	@keyframes rearrange_I1{
+		79% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 2*($boxW + $space) 0px;
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), 0px 2*($boxW + $space);
+		}
+	}
+
+	@keyframes rearrange_Z1{
+		79% {
+			box-shadow: -($boxW + $space) 0px,  0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), -($boxW + $space) 0px, -($boxW + $space) ($boxW + $space);
+		}
+	}
+
+	@keyframes rearrange_mirroredZ1{
+		79% {
+			box-shadow: ($boxW + $space) 0px,  0px ($boxW + $space), -($boxW + $space) ($boxW + $space);
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), ($boxW + $space) 0px, ($boxW + $space) ($boxW + $space);
+		}
+	}
+
+
+	@keyframes rearrange_T2{
+		30% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+		}
+		51% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+		}
+		79% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+		}
+		100% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+		}
+	}
+
+	@keyframes rearrange_T3{
+		9% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+		}
+		28% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+		}
+		43% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), -($boxW + $space) 0px;
+		}
+		64% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+		}
+		79% {
+			box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px (-($boxW + $space));
+		}
+		100% {
+			box-shadow: 0px (-($boxW + $space)), 0px ($boxW + $space), ($boxW + $space) 0px;
+		}
+	}
+
+	.tree {
+		width:11*($boxW + $space);
+		height: 12*($boxW + $space);
+		margin-left: -5.5 * ($boxW + $space);
+		margin-top:$treeMarginTop;
+	}
+
+	.cover {
+		bottom: 0;
+		margin-bottom: 12*($boxW + $space) + $treeMarginTop;
+		height: 12*($boxW + $space);
+	}
+
+	.treeComponent {
+		left:6*($boxW + $space);
+		width:$boxW;
+		height:$boxW;
+	}
+
+	.snowLayer {
+		width: 1000px;
+		margin-top:-($treeMarginTop);
+	}
+
+	.I {
+		box-shadow: -($boxW + $space) 0px , ($boxW + $space) 0px, 2*($boxW + $space) 0px;
+	}
+
+	.L {
+		box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  -($boxW + $space) ($boxW + $space);
+	}
+
+	.mirroredL {
+		box-shadow: -($boxW + $space) 0px, -2*($boxW + $space) 0px,  0px ($boxW + $space);
+	}
+
+	.T {
+		box-shadow: -($boxW + $space) 0px, ($boxW + $space) 0px, 0px ($boxW + $space);
+	}
+
+	.O {
+		box-shadow: ($boxW + $space) 0px, 0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+	}
+
+	.Z {
+		box-shadow: -($boxW + $space) 0px,  0px ($boxW + $space), ($boxW + $space) ($boxW + $space);
+	}
+
+	.mirroredZ {
+		box-shadow: ($boxW + $space) 0px,  0px ($boxW + $space), -($boxW + $space) ($boxW + $space);
+	}
+
+	#item-1 {
+		top:-2*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-2 {
+		top:-4*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-3 {
+		top:-5*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-4 {
+		top:-2*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-5 {
+		top:-3*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-6 {
+		top:-4*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-7 {
+		top:-2*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-8 {
+		top:-4*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-9 {
+		top:-4*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-10 {
+		top:-8*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-11 {
+		top:-5*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-12 {
+		top:-7*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-13 {
+		top:-6*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-14 {
+		top:-7*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-15 {
+		top:-8*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-16 {
+		top:-9*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-17 {
+		top:-10*($boxW + $space)-$treeMarginTop;
+	}
+
+	#item-18 {
+		top:-11*($boxW + $space)-$treeMarginTop;
+	}
+}
